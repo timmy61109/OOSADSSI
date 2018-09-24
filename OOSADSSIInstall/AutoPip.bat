@@ -1,2 +1,2 @@
 python -m easy_install pip
-pip install xlwt xlrd xlutils XlsxWriter xlwings openpyxl pillow selenium BeautifulSoup4
+pip install xlwt xlrd xlutils XlsxWriter xlwings openpyxl pillow selenium BeautifulSoup4 pytesseract
