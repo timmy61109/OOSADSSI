@@ -24,20 +24,19 @@ def PhotoSpreadsheetsCSV(ReadPath, WritePath):
 
 def PhotoRGB(ReadPath):
     pict = imageio.imread(ReadPath)
+    AllList = []
     for X in range(0, pict.shape[0]):
         for Y in range(0, pict.shape[1]):
             a = pict[X, Y]
             col = '%03d%03d%03d' % (a[0], a[1], a[2])
-            col, x ,y = str(col), str(X), str(Y)
-            #AllList = [X, Y, col]
-            AllList = x, y, col
-            print AllList
-            return AllList
+            AllList.append([X, Y, col])
+    return AllList
 
 def PhotoRGBCSV(ReadPath, WritePath):
     FA.CreateCSV(WritePath)
-    for (X, Y, col) in PhotoRGB(ReadPath):
-        ColList = X + "," + Y + "," + col + "\n"
+    for X, Y, col in PhotoRGB(ReadPath):
+        x , y, col = str(X), str(Y), str(col)
+        ColList = x + "," + y + "," + col + "\n"
         FA.AddDataCSV(WritePath, ColList)
 
 def PhotoSpreadsheetsXlsx(ReadPath, WritePath):
