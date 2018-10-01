@@ -28,11 +28,15 @@ def PhotoRGB(ReadPath):
         for Y in range(0, pict.shape[1]):
             a = pict[X, Y]
             col = '%03d%03d%03d' % (a[0], a[1], a[2])
-            return X, Y, col
+            col, x ,y = str(col), str(X), str(Y)
+            #AllList = [X, Y, col]
+            AllList = x, y, col
+            print AllList
+            return AllList
 
 def PhotoRGBCSV(ReadPath, WritePath):
     FA.CreateCSV(WritePath)
-    for X, Y, col in range(PhotoRGB(ReadPath)):
+    for (X, Y, col) in PhotoRGB(ReadPath):
         ColList = X + "," + Y + "," + col + "\n"
         FA.AddDataCSV(WritePath, ColList)
 
