@@ -9,5 +9,4 @@ result_dir = '../Image/'
 lists = os.listdir(result_dir)
 for Document in lists:
     ReadPath, WritePath = "../Image/" + Document, "../Data/" + Document[:-4] + ".csv"
-    #PS.PhotoSpreadsheetsCSV(ReadPath, WritePath)
     PS.PhotoRGBCSV(ReadPath, WritePath)
